@@ -1,0 +1,489 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;700&display=swap');
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+:root{
+    /* Colors */
+    --Orange: hsl(26, 100%, 55%);
+    --Pale-orange: hsl(25, 100%, 94%);
+    --Very-dark-blue: hsl(220, 13%, 13%);
+    --Dark-grayish-blue: hsl(219, 9%, 45%);
+    --Grayish-blue: hsl(220, 14%, 75%);
+    --Light-grayish-blue: hsl(223, 64%, 98%);
+    --White: hsl(0, 0%, 100%);
+    --Black: hsl(0, 0%, 0%);
+    /* Fonts */
+    --ffamily: 'Kumbh Sans', sans-serif;
+    --fweights-400:400;
+    --fweights-700:700;
+    /* Size */
+    --fsize:16px;
+    --phone: 375px;
+    --pc: 1440px;
+}
+body{
+    background-color: var(--White);
+    padding-inline: 6em;
+}
+header{
+    width: 100%;
+    height: 6em;
+    padding-block: 1.3em;
+    display: grid;
+    grid-template-columns: 8em 25em 7em;
+    border-bottom: 1px solid lightgray;
+    justify-content: space-between;
+    align-items:center;
+    gap: 1em;
+}
+header >*{
+    padding: .2em;
+}
+header .logo,header nav , header nav ul , .left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header .logo{
+    height: 80%;
+}
+header nav {
+    min-height: 100%;
+}
+@media only screen and (min-width:68em){ header nav{margin-left: -16em;}}
+header  .menu{
+    display: none;
+}
+header nav ul{
+    min-height: 100%;
+    gap: 2em;
+    list-style: none;
+}
+header nav ul li{
+    color: var(--Dark-grayish-blue);
+    padding-block: .4em;
+    cursor: pointer;
+    font-weight: var(--fweights-400);
+    transition: all .1s ease-out;
+}
+header nav ul li:hover{
+    border-bottom: 3px solid var(--Orange);
+    color: var(--black);
+}
+header .left{
+    gap: 2em;   
+    position: relative; 
+}
+header .left .shop{
+    position: relative;
+    cursor: pointer;
+}
+header .left .cartContent{
+    position: absolute;
+    width: 20em;
+    min-height: 14em;
+    background: var(--White);
+    box-shadow: -10px 8px 10px lightgray,
+                10px 8px 20px lightgray;
+    top: 4em;
+    left: -10em;
+    border-radius: 10px;
+    transform: translateY(-200%);
+    opacity: 0;
+    transition: transform .6s ease-out,
+                opacity .9s ease-out;
+}
+header .left .cartDrop{
+    transform: translateY(0);
+    opacity: 1;
+}
+header .left .cartContent h4{
+    padding-left: 1em;
+    margin-block: .5em;
+    width: 100%;
+    min-height: 2.5em;
+    border-bottom: 2px solid var(--Grayish-blue);
+}
+header .left .cartContent .beforeAdd{
+    margin: 3em 6em;
+    font-size: .9rem;
+    color: var(--Dark-grayish-blue);
+    font-weight: var(--fweights-700);
+}
+header .left .cartContent .smallContainare{
+    min-height: 6em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding-inline: .4em;
+}
+header .left .cartContent .imagShop{
+    width: 3em;
+    height: 3em;
+}
+header .left .cartContent .imagShop img{
+    width: 100%;
+    border-radius: 6px;
+    height: 100%;
+}
+header .left .cartContent p{
+    color: var(--Dark-grayish-blue);
+    padding-block: .3em;
+}
+header .left .cartContent .onePrice,
+header .left .cartContent .ComandNmb{
+    color: var(--Dark-grayish-blue);
+}
+header .left .cartContent .totalePrice{
+    color: var(--Black);
+    font-weight: var(--fweights-700);
+}
+header .left .cartContent .delete{
+    cursor: pointer;
+}
+header .left .cartContent .ckeout{
+    width: calc(100% - 2em);
+    padding: 1em 1.5em;
+    border:0;
+    background: var(--Orange);
+    border-radius: 10px;
+    margin-inline: 1em;
+    color: var(--White);
+
+}
+header .left .shop:before{
+    content: attr(data-shop);
+    width:  1.2em;
+    height: 1em;
+    position: absolute;
+    color: var(--White);
+    background: var(--Orange);
+    font-weight: var(--fweights-700);
+    font-size: .6rem;
+    border-radius: 50%;
+    top: -.6em;
+    right: -.5em;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .1em;
+}
+header .left .profile{
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    transition: all .3s ease-out;
+    cursor: pointer;
+}
+header .left .profile:hover{
+    border: 2px solid var(--Orange);
+}
+header .left .profile img , header .logo img{
+    width: 100%;
+    height: 100%;
+}
+@media only screen and (max-width: 28.125em){
+    body{
+        padding:0;
+    }
+    header{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    header .logo{
+        width: 9em;
+        height: 2em;
+        order: 2;
+        margin-left: -3em;
+        padding-bottom: .5em;;
+    }
+    
+    header .menu{
+        display: block;
+        z-index: 1000;
+        width:  2em;
+        height: 1.8em;
+    }
+    header .menu img{
+        width: 100%;
+        height: 100%;
+    }
+    header nav {
+        width: 17em;
+        min-height: 100vh;
+        margin-left: 0em;
+        order: 1;
+        align-items: flex-start;
+        justify-content: start;
+        background: var(--White);
+        position: absolute;
+        top:0;
+        left:0;
+        transform: translateX(-100%);
+        transition: transform .3s ease-out;
+    }
+    header .trans{
+       transform: translateX(0);
+       z-index:100;
+    }
+    header nav ul{
+        display: block;
+        justify-content: initial;
+        align-items: initial;
+        padding: 2em;
+        position:relative;
+        top: 4em;
+        left: 0em; 
+        
+    }
+    header nav ul li{
+        color: var(--Black);
+        font-weight: var(--fweights-700);
+        font-size: 1.2rem;
+    }
+    header nav ul li:hover{
+        border: 0;
+    }
+    header .left{
+        order: 3;
+    }
+    header .left .cartContent{
+        min-height: 16em;
+        box-shadow: none;
+        width: 25em;
+        top: 5em;
+        left: -18em;
+        z-index: 9999;
+    }
+    header .left .cartContent{
+        padding-inline-start: 2em;
+    }
+    header .left .profile{
+        width:  2em;
+        height: 2em;
+    }
+    header .left .profile img{
+        width: 100%;
+        height: 100%;
+    }
+}
+main{
+    width: 100%;
+    min-height: 50vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3em;
+    margin-top: 4em;
+    padding: .5em;
+}
+main .product{
+    width:  23em;
+    min-height: 27em;
+    margin-bottom: 2em;
+    display: grid;
+    gap: 1em;
+    padding: .5em;
+}
+main .product .hero{
+   width: 100%;
+   height: 20em;
+} 
+main .product .heroImages{
+    display: none;
+}
+main .product .previous,
+main .product .next{
+    display: none;
+}
+main .product .images{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+}
+main .product .images div{
+    width: 100%;
+    height: 4em;
+    cursor: pointer;
+}
+main .product .hero  , main .product .images div,
+main .product .hero img , main .product .images img{
+    border-radius: 10px;
+}
+main .product .hero img , main .product .images img{
+    width: 100%;
+    height: 100%;
+}              
+main .product .images div{
+    transition: all .5s ease-out;
+    cursor: pointer;
+}
+main .product .images .focus{
+    outline: 3px solid var(--Orange);
+    filter:opacity(.5);
+}
+main .product .images div:hover{
+    filter:opacity(.5);
+}
+main .containaire{
+    width: 30em;
+    min-height: 20em;
+    padding: 2em;
+}
+main .containaire h3{
+    color: var(--Orange);
+    font-weight: var(--fweights-700);
+    text-transform: uppercase;
+    padding-block: .5em;
+}
+main .containaire h1{
+    padding-block: .5em;
+    font-size: 2rem;
+}
+main .containaire p{
+    font-size: .9rem;
+    color: var(--Dark-grayish-blue);
+}
+main .containaire span{
+    display: inline-block;
+    margin-block: .7em .2em;
+}
+main .containaire .price{
+    font-size: 1.6rem;
+    font-weight: var(--fweights-700);
+    margin-right: .5em; 
+}
+main .containaire .solde{
+    background: var(--Pale-orange);
+    color: var(--Orange);
+    padding: .2em;
+    font-size: .9rem;
+}
+main .containaire .oldPrice{
+    color:  var(--Dark-grayish-blue);
+    text-decoration: line-through;
+    font-weight: var(--fweights-400);
+}
+main .containaire .contet {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+main .containaire .contet .minus,
+main .containaire .contet .plus{
+    background: none ;
+    border:none;
+    padding-inline: .2em;
+    cursor: pointer;
+}
+main .containaire .contet .add{
+    background: var(--Orange);
+    border: 0;
+    padding: 1em 2em;
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    font-weight: var(--fweights-700);
+    color: var(--White);
+    border-radius: 10px;
+    transition: all .3s ease-out;
+    cursor: pointer;
+}
+main .containaire .alert{
+    padding: .5em;
+    color: red;
+    display: none;
+}
+main .containaire .contet .minus:hover,
+main .containaire .contet .plus:hover,
+main .containaire .contet .add:hover{
+    opacity: .65;
+}
+
+
+@media only screen and (max-width: 28.125em){
+    body,html{
+        overflow-X: hidden;
+    }
+    main{
+        gap: 0em;
+        margin-top: 0;
+        padding: 0;
+    }
+    main .product{
+        width:  100%;
+        min-height: 20em;
+        margin-bottom: 0;
+        padding: 0;
+        position: relative;
+    }
+    main .product .previous,
+    main .product .next{
+        display: block;
+        width:  1.3em;
+        height: 1.3em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 50%;
+        background: var(--White);
+        padding: 1.4em;
+        z-index: 99;
+    }
+    main .product .heroPc{
+        display: none;
+    }
+    main .product .heroImages{
+        display: flex;
+        width: 100%;
+        transition: all .5s ease-out;
+        position: relative;
+    }
+    main .product .heroImages div{
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        transition: all 1s ease;
+        opacity: 0;
+    }
+    main .product .heroImages div:nth-child(1){
+        opacity: 1;
+    }
+    main .product .heroImages div img{
+        border-radius:0;
+    }
+    main .product .previous{
+        left: 1em;
+    }
+    main .product .next{
+        right: 1em;
+    }
+    main .product .images{
+        display: none;
+    }
+    main .containaire{
+        width: 100%;
+    }
+    main .containaire .contet{
+        flex-wrap: wrap;
+    }
+    main .containaire .contet .minus,
+    main .containaire .contet .plus{
+        width: 9em;
+    }
+    main .containaire .contet .add{
+        width: 100%;
+        justify-content: center;
+    }
+
+}
