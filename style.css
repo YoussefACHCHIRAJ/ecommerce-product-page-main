@@ -54,7 +54,11 @@ header .logo{
 header nav {
     min-height: 100%;
 }
-@media only screen and (min-width:68em){ header nav{margin-left: -16em;}}
+@media only screen and (min-width:68em){
+    header nav{
+        margin-left: -16em;
+    }
+}
 header  .menu{
     display: none;
 }
@@ -189,8 +193,14 @@ header .left .profile img , header .logo img{
 @media only screen and (max-width: 28.125em){
     body{
         padding:0;
+        padding-block-start: 6em;
     }
     header{
+        position: fixed;
+        background: var(--White);
+        top:0;
+        left:0;
+        z-index:100;
         display: flex;
         align-items: center;
         justify-content: space-around;
